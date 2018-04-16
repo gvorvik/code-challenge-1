@@ -1,4 +1,5 @@
 console.log('JS Sourced');
+let clicks = 1;
 
 $(document).ready(onReady);
 
@@ -8,7 +9,12 @@ function onReady() {
 };
 
 function appendDiv() {
-    $('body').append(`<div></div>`);
+    $('body').append(`<div>
+    <p>${clicks}</p>
+    <button>Swap</button>
+    <button>Delete</button>
+    </div>`);
+    clicks++;
 }
 
 
