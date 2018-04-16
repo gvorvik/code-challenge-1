@@ -4,11 +4,12 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('JQuery has arrived');
-    generateButton();
+    $('#generateButton').on('click', appendDiv);
 };
 
-function generateButton() {
-    $('#generateButton').on('click', function() {
-        console.log('Generate Button Clicked');
-    });
+function appendDiv() {
+    $('body').append(`<div></div>`);
 }
+
+
+
