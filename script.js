@@ -11,11 +11,17 @@ function onReady() {
 function appendDiv() {
     $('body').append(`<div class="generatedDiv">
         <p>${clicks}</p>
-        <button class="swapButton">Swap</button>
-        <button class="deleteButton">Delete</button>
+        <button id="swapButton${clicks}">Swap</button>
+        <button id="deleteButton${clicks}">Delete</button>
     </div>`);
+    $(`#swapButton${clicks}`).on('click', swapColor);
+    $(`#deleteButton${clicks}`).on('click', deleteDiv);
     clicks++;
-    $('.deleteButton').on('click', deleteDiv);
+}
+
+//Swaps background colors of the div
+function swapColor() {
+    $(this).parent().toggleClass('generatedDiv');
 }
 
 //Deletes the div when delete button is pressed
