@@ -9,12 +9,18 @@ function onReady() {
 };
 
 function appendDiv() {
-    $('body').append(`<div>
-    <p>${clicks}</p>
-    <button>Swap</button>
-    <button>Delete</button>
+    $('body').append(`<div class="generatedDiv">
+        <p>${clicks}</p>
+        <button class="swapButton">Swap</button>
+        <button class="deleteButton">Delete</button>
     </div>`);
     clicks++;
+    $('.deleteButton').on('click', deleteDiv);
+}
+
+//Deletes the div when delete button is pressed
+function deleteDiv() {
+    $(this).parent().remove();
 }
 
 
