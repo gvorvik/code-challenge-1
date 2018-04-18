@@ -6,28 +6,26 @@ $(document).ready(onReady);
 function onReady() {
     console.log('JQuery has arrived');
     $('#generateButton').on('click', appendDiv);
+    //descendant selector click handlers!!!
+    $('body').on('click', '.deleteButton', deleteDiv);
+    $('body').on('click', '.swapButton', swapColor);
 };
 
 function appendDiv() {
     $('body').append(`<div class="generatedDiv">
         <p>${clicks}</p>
-        <button id="swapButton${clicks}">Swap</button>
-        <button id="deleteButton${clicks}">Delete</button>
+        <button class="swapButton">Swap</button>
+        <button class="deleteButton">Delete</button>
     </div>`);
-    $(`#swapButton${clicks}`).on('click', swapColor);
-    $(`#deleteButton${clicks}`).on('click', deleteDiv);
     clicks++;
 }
 
-//Swaps background colors of the div
-function swapColor() {
-    $(this).parent().toggleClass('generatedDiv');
-}
-
-//Deletes the div when delete button is pressed
+//function for deleting div
 function deleteDiv() {
     $(this).parent().remove();
 }
 
-
-
+//function for swapping background color
+function swapColor() {
+    $(this).parent().toggleClass('generatedDiv');
+}
